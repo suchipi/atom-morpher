@@ -1,0 +1,11 @@
+{
+  ".platform-darwin .editor": {
+    "ctrl-cmd-a": "morpher:open-transforms-list"
+  },
+  ".platform-win32 .editor": {
+    "ctrl-alt-a": "morpher:open-transforms-list"
+  },
+  ".platform-linux .editor": {
+    "ctrl-alt-a": "morpher:open-transforms-list"
+  }
+}

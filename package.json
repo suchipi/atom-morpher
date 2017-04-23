@@ -1,0 +1,33 @@
+{
+  "name": "morpher",
+  "main": "./index",
+  "version": "1.0.0",
+  "description": "Run code transformations on the current buffer",
+  "keywords": [
+    "ast",
+    "babel",
+    "estree",
+    "prune",
+    "spidermonkey",
+    "babylon",
+    "wrap",
+    "unwrap",
+    "rename",
+    "jscodeshift",
+    "recast",
+    "codemod"
+  ],
+  "repository": "https://github.com/suchipi/morpher",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "activationCommands": {
+    ".workspace": "morpher:open-your-transforms-file",
+    ".editor": "morpher:open-transforms-list"
+  },
+  "dependencies": {
+    "atom-space-pen-views": ">=2.2.0 <3.0",
+    "shelljs": "^0.7.7"
+  }
+}

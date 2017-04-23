@@ -1,0 +1,22 @@
+{
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "morpher",
+          "submenu": [
+            {
+              "label": "Open Transforms List",
+              "command": "morpher:open-transforms-list"
+            },
+            {
+              "label": "Open Your Transforms File",
+              "command": "morpher:open-your-transforms-file"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
