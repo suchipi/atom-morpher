@@ -1,7 +1,7 @@
 {
   "name": "morpher",
   "main": "./index",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run code transformations on the current buffer",
   "keywords": [
     "ast",
