@@ -13,6 +13,7 @@ Transform functions receive:
 * The current cursor position
 * The current selection range
 * The absolute path to the current file (if any)
+
 And can modify:
 * The text in the current buffer
 * The current cursor position
@@ -124,8 +125,8 @@ module.exports = function() {
     {
       name: "Add // @flow",
       description: "Adds '// @flow' to the top of the file (if not present)",
-      transformer: function({ text }) {
-        if (text.indexOf("// @flow") === -1) {
+      onSelected({ text }) {
+        if (text.split("\n")[0].indexOf("// @flow") === -1) {
           return { text: "// @flow\n" + text };
         }
 
