@@ -17,7 +17,7 @@
     "recast",
     "codemod"
   ],
-  "repository": "https://github.com/suchipi/morpher",
+  "repository": "https://github.com/suchipi/atom-morpher",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
