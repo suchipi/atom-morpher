@@ -4,9 +4,10 @@
 programmatically changing the text, cursor position, and selection range of the
 current buffer.
 
-The user writes "transforms" to `~/.atom/morpher-transforms.js`, and can press a
-keystroke to bring up a list of these transforms, then choose one to execute on
-the current buffer.
+The user writes "transforms" in `~/.atom/morpher-transforms.js`, and can bring
+up a list of these transforms, then choose one to execute on the current buffer.
+
+![Usage example gif](example.gif)
 
 Transform functions receive:
 * The text in the current buffer
