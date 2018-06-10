@@ -32,8 +32,7 @@ exported from this file and presents them in a list to the user.
 The transforms file should export a function that returns either an Array of
 transforms or a Promise that resolves to an Array of transforms.
 
-A transform is an object with three properties: `name`, `description`, and
-`onSelected`.
+A transform is an object with these properties:
 * `name` is a required string. This is the name that will be shown in the list.
 * `description` is an optional string. If present, it will be displayed
   underneath the name in the list.
@@ -51,6 +50,7 @@ the editor. It has these properties:
 * `filePath`: A string containing the absolute path the current file open in the
   buffer. If the current buffer does not refer to a file (ie "untitled"), this
   property will be undefined.
+* `selectedText`: A string containing the selected text in the buffer.
 
 The return value of the `onSelected` function is an object describing the
 changes that should be applied to the buffer, called a "transform result".
@@ -58,6 +58,8 @@ changes that should be applied to the buffer, called a "transform result".
 A transform result has these properties:
 * `text`: An optional string. If included, the buffer text will be replaced with
   this text.
+* `selectedText`: An optional string. If included, the selected text in the
+  buffer will be replaced with this text.
 * `cursorPosition`: An optional [Point](https://atom.io/docs/api/latest/Point)
   (or Point-compatible Array). If included, the cursor will be moved to the new
   position specified.
@@ -72,6 +74,7 @@ Here are some flowtype definitions for the concepts:
 ```js
 type BufferState = {
   text: string,
+  selectedText: string,
   cursorPosition: Point,
   selection: Range,
   filePath?: string,
@@ -79,6 +82,7 @@ type BufferState = {
 
 type TransformResult = {
   text?: string,
+  selectedText?: string,
   cursorPosition?: Point | [number,  number],
   selection?: Range | [[number, number], [number, number]],
 };
@@ -101,18 +105,8 @@ module.exports = function() {
     {
       name: "Uppercase selected text",
       description: "Converts all characters in the selection to uppercase",
-      onSelected({ text, selection }) {
-        // This transformer will use atom's TextBuffer to transform the text,
-        // but you can use any method you want; you just need to make a
-        // string containing all the new text you want to be in the buffer.
-        const buffer = new TextBuffer({ text });
-        const selectionContent = buffer.getTextInRange(selection);
-        buffer.setTextInRange(selection, selectionContent.toUpperCase());
-        const newText = buffer.getText();
-
-        return {
-          text: newText,
-        };
+      onSelected({ selectedText }) {
+        return { selectedText: selectedText.toUpperCase() };
       },
     },
     {
