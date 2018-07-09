@@ -8,6 +8,9 @@
   ".platform-linux .editor": {
     "ctrl-alt-a": "morpher:open-transforms-list"
   },
+  ".morpher-variables atom-text-editor[mini]": {
+    "enter": "morpher:confirm"
+  },
   ".platform-darwin .morpher-variables, .platform-darwin .morpher-variables atom-text-editor": {
     "cmd-enter": "morpher:confirm"
   },
