@@ -36,6 +36,16 @@ A transform is an object with these properties:
 * `name` is a required string. This is the name that will be shown in the list.
 * `description` is an optional string. If present, it will be displayed
   underneath the name in the list.
+* `variables` is an optional object, or function returning an object.
+  If present, after the user selects this transform, they will be prompted to
+  enter values for these variables in another dialog.
+  If a function is given, it will be called with the same props as `onSelected`
+  (except the `variables` values) and must return an object.
+  The key is the variable name, and the value is an object containing additional
+  options:
+  * `label` (default: variable name) - the label for the editor in the variables dialog
+  * `mini` (default: `true`) - if `false`, use a multiline editor
+  * `defaultValue` (default: empty string) - the initial value for the editor
 * `onSelected` is a required function that will be called when the user selects
   the transform.
 
@@ -51,6 +61,8 @@ the editor. It has these properties:
   buffer. If the current buffer does not refer to a file (ie "untitled"), this
   property will be undefined.
 * `selectedText`: A string containing the selected text in the buffer.
+* `variables`: if the transform requested `variables` in its config, this will
+  be an object containing the values for the variables entered by the user.
 
 The return value of the `onSelected` function is an object describing the
 changes that should be applied to the buffer, called a "transform result".
@@ -78,6 +90,7 @@ type BufferState = {
   cursorPosition: Point,
   selection: Range,
   filePath?: string,
+  variables?: {[variable: string]: string},
 };
 
 type TransformResult = {
@@ -87,10 +100,19 @@ type TransformResult = {
   selection?: Range | [[number, number], [number, number]],
 };
 
+type VariablesConfig = {
+  [variable: string]: {
+    label?: string, // (default: variable)
+    mini?: boolean, // (default: true)
+    defaultValue?: string, // (default: empty string)
+  },
+};
+
 type Transform = {
   name: string,
   description?: string,
   onSelected: (BufferState) => TransformResult | void | Promise<TransformResult | void>,
+  variables?: VariablesConfig | (BufferState) => (VariablesConfig | Promise<VariablesConfig>),
 };
 
 type TransformsFileExport = () => Array<Transform> | Promise<Array<Transform>>,
