@@ -44,7 +44,7 @@ A transform is an object with these properties:
   The key is the variable name, and the value is an object containing additional
   options:
   * `label` (default: variable name) - the label for the editor in the variables dialog
-  * `mini` (default: `true`) - if `false`, use a multiline editor
+  * `multiline` (default: `false`) - if `true`, use a multiline editor
   * `defaultValue` (default: empty string) - the initial value for the editor
 * `onSelected` is a required function that will be called when the user selects
   the transform.
@@ -103,7 +103,7 @@ type TransformResult = {
 type VariablesConfig = {
   [variable: string]: {
     label?: string, // (default: variable)
-    mini?: boolean, // (default: true)
+    multiline?: boolean, // (default: false)
     defaultValue?: string, // (default: empty string)
   },
 };
