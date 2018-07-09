@@ -29,7 +29,7 @@ export default {
             const selection = activeEditor.getLastSelection().getBufferRange();
             const selectedText = activeBuffer.getTextInRange(selection);
             const filePath = activeEditor.getPath();
-            variables = variables({text, cursorPosition, selection, filePath, selectedText});
+            variables = await variables({text, cursorPosition, selection, filePath, selectedText});
           }
           if (!(variables instanceof Object)) {
             throw new Error('variables is invalid, must be an object or a function that returns an object');
