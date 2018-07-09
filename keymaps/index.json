@@ -8,10 +8,10 @@
   ".platform-linux .editor": {
     "ctrl-alt-a": "morpher:open-transforms-list"
   },
-  ".platform-darwin .morpher-variables": {
+  ".platform-darwin .morpher-variables, .platform-darwin .morpher-variables atom-text-editor": {
     "cmd-enter": "morpher:confirm"
   },
-  ".platform-win32 .morpher-variables, .platform-linux .morpher-variables": {
+  ".platform-win32 .morpher-variables, .platform-linux .morpher-variables, .platform-win32 .morpher-variables atom-text-editor, .platform-linux .morpher-variables atom-text-editor": {
     "ctrl-enter": "morpher:confirm"
   },
   ".morpher-variables": {
