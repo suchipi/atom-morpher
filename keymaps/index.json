@@ -14,6 +14,10 @@
   ".platform-win32 .morpher-variables, .platform-linux .morpher-variables, .platform-win32 .morpher-variables atom-text-editor, .platform-linux .morpher-variables atom-text-editor": {
     "ctrl-enter": "morpher:confirm"
   },
+  ".morpher-variables atom-text-editor": {
+    "alt-tab": "morpher:focus-next",
+    "alt-shift-tab": "morpher:focus-previous"
+  },
   ".morpher-variables": {
     "escape": "morpher:cancel",
     "tab": "morpher:focus-next",
