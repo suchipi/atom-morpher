@@ -16,7 +16,7 @@ export default {
     prepareTransformsFile();
 
     this.transformsList = new TransformsList({
-      transformSelected: async ({ name, variables, onSelected: transformer }) => {
+      transformSelected: async ({ name, description, variables, onSelected: transformer }) => {
         let variableValues;
         if (variables) {
           if (typeof variables === 'function') {
@@ -35,9 +35,9 @@ export default {
             throw new Error('variables is invalid, must be an object or a function that returns an object');
           }
           if (!this.variablesForm) {
-            this.variablesForm = new VariablesForm({});
+            this.variablesForm = new VariablesForm({name, description});
           }
-          this.variablesForm.update({variables});
+          this.variablesForm.update({name, description, variables});
           variableValues = await this.variablesForm.open();
           if (!variableValues) return;
         }
