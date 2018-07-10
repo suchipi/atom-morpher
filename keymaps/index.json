@@ -7,5 +7,23 @@
   },
   ".platform-linux .editor": {
     "ctrl-alt-a": "morpher:open-transforms-list"
+  },
+  ".morpher-variables atom-text-editor[mini]": {
+    "enter": "morpher:confirm"
+  },
+  ".platform-darwin .morpher-variables, .platform-darwin .morpher-variables atom-text-editor": {
+    "cmd-enter": "morpher:confirm"
+  },
+  ".platform-win32 .morpher-variables, .platform-linux .morpher-variables, .platform-win32 .morpher-variables atom-text-editor, .platform-linux .morpher-variables atom-text-editor": {
+    "ctrl-enter": "morpher:confirm"
+  },
+  ".morpher-variables atom-text-editor": {
+    "alt-tab": "morpher:focus-next",
+    "alt-shift-tab": "morpher:focus-previous"
+  },
+  ".morpher-variables": {
+    "escape": "morpher:cancel",
+    "tab": "morpher:focus-next",
+    "shift-tab": "morpher:focus-previous"
   }
 }
