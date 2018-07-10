@@ -40,7 +40,7 @@ A transform is an object with these properties:
   If present, after the user selects this transform, they will be prompted to
   enter values for these variables in another dialog.
   If a function is given, it will be called with the same props as `onSelected`
-  (except the `variables` values) and must return an object.
+  (except the `variableValues`) and must return an object.
   The key is the variable name, and the value is an object containing additional
   options:
   * `label` (default: variable name) - the label for the editor in the variables dialog
@@ -61,7 +61,7 @@ the editor. It has these properties:
   buffer. If the current buffer does not refer to a file (ie "untitled"), this
   property will be undefined.
 * `selectedText`: A string containing the selected text in the buffer.
-* `variables`: if the transform requested `variables` in its config, this will
+* `variablesValues`: if the transform requested `variables` in its config, this will
   be an object containing the values for the variables entered by the user.
 
 The return value of the `onSelected` function is an object describing the
