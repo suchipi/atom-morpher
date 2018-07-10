@@ -61,7 +61,7 @@ the editor. It has these properties:
   buffer. If the current buffer does not refer to a file (ie "untitled"), this
   property will be undefined.
 * `selectedText`: A string containing the selected text in the buffer.
-* `variablesValues`: if the transform requested `variables` in its config, this will
+* `variableValues`: if the transform requested `variables` in its config, this will
   be an object containing the values for the variables entered by the user.
 
 The return value of the `onSelected` function is an object describing the
